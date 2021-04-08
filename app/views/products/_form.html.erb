@@ -32,8 +32,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :marca %>
-    <%= form.text_field :marca %>
+    <label for="brand_id">Marca</label>
+    <select name="product[brand_id]" class="form-control">
+      <option value="null">Seleccione marca</option>
+      <% Brand.all.each do |b| %>
+        <option value="<%= b.id %>" <%= @product.brand_id == b.id ? "selected" : ""%>><%= b.name%></option>
+      <% end %>
+    </select>
   </div>
 
   <div class="field">

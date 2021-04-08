@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1 or /products/1.json
   def show
-    @product = Product.includes(:category).find(params[:id])
+    @product = Product.includes(:category, :brand).find(params[:id])
   end
 
   # GET /products/new
@@ -65,6 +65,6 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:name, :price, :description, :marca, :onsale, :image, :category_id)
+      params.require(:product).permit(:name, :price, :description, :marca, :onsale, :image, :category_id, :brand_id)
     end
 end
