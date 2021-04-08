@@ -42,8 +42,13 @@
   </div>
 
   <div class="field">
-  <%= form.label :category_id %>
-  <%= form.text_field :category_id %>
+    <label for="category_id">Categoria</label>
+    <select name="product[category_id]" class="form-control">
+      <option value="null">Seleccione categoría</option>
+      <% Category.all.each do |c| %>
+      <option value="<%= c.id %>" <%= @product.category_id == c.id ? "selected" : ""%>><%= c.name%></option>
+      <% end %>
+    </select>
   </div>
 
   <div class="actions">
