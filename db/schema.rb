@@ -15,10 +15,10 @@ ActiveRecord::Schema.define(version: 2021_04_08_091736) do
   create_table "accounts", force: :cascade do |t|
     t.string "nombre", default: "", null: false
     t.string "apellidos", default: "", null: false
-    t.integer "telefono", null: false
-    t.integer "cpostal", null: false
+    t.string "telefono", default: "", null: false
+    t.string "cpostal", default: "", null: false
     t.string "direccion", default: "", null: false
-    t.integer "dni", null: false
+    t.string "dni", default: "", null: false
     t.string "pais", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
