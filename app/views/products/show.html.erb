@@ -30,5 +30,14 @@
   <%= @product.onsale %>
 </p>
 
+<p>
+  <strong > Category: </strong>
+  <%= @product.category_id %>
+</p>
+
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
+
+
+
+<% end %>
