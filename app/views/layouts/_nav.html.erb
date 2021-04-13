@@ -38,6 +38,14 @@
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" <%= @search%>>
         <button class="btn btn-outline-success" type="submit">Search</button>
+        <select name="selectMarca" id="selectMarca" <%= @selectmarca%>>
+          <option value="0">TODAS LAS MARCAS</option>
+          <option value="1">Apple</option>
+          <option value="2">Microsoft</option>
+          <option value="3">Samsung</option>
+          <option value="4">LG</option>
+          <option value="5">Razer</option>
+        </select>
       </form>
     </div>
   </div>
