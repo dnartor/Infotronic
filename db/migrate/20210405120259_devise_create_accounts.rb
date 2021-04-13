@@ -4,15 +4,15 @@ class DeviseCreateAccounts < ActiveRecord::Migration[6.1]
   def change
     create_table :accounts do |t|
       ## Database authenticatable
-      t.string :nombre,              null: false, default: ""
-      t.string :apellidos,           null: false, default: ""
-      t.integer :telefono,           null: false, default: ""
-      t.integer :cpostal,            null: false, default: ""
-      t.string :direccion,           null: false, default: ""
-      t.integer :dni,                null: false, default: ""
-      t.string :pais,                null: false, default: ""
-      t.string :email,               null: false, default: ""
-      t.string :encrypted_password,  null: false, default: ""
+      t.string :nombre,              null: false
+      t.string :apellidos,           null: false
+      t.integer :telefono,           null: false
+      t.integer :cpostal,            null: false
+      t.string :direccion,           null: false
+      t.integer :dni,                null: false
+      t.string :pais,                null: false
+      t.string :email,               null: false
+      t.string :encrypted_password,  null: false
 
       ## Recoverable
       t.string   :reset_password_token
