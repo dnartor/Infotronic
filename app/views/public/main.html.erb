@@ -1,17 +1,30 @@
-<% @products.each do |product| %>
-    <div class="col-4">
-        <h5>
-            <%= product.name %>
-        </h5>
-        <p>
-            <%= product.description%>
-        </p>
-        <span><%= number_to_currency product.price, :locale => :en %> </span>
-        <%= form_for(@order_item, remote: true) do |f| %>
-        <%= f.hidden_field :product_id, value: product.id %>
-        <%= f.number_field :quantity, value: 1, min: 1%>
-        <%= f.submit "Add To Cart" %>
-        <%= link_to 'Show Product', product %>
-        <% end %>
-    </div>
-    <% end %>
+
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">Nombre</th>
+    <th scope="col">Descripcion</th>
+    <th scope="col">Precio</th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @products.each do |product| %>
+  <tr>
+    <td><h6><%= product.name %></h6></td>
+    <td><%= product.description%></td>
+    <td><%= number_to_currency product.price, :locale => :en %></td>
+      <%= form_for(@order_item, remote: true) do |f| %>
+        <td><%= f.hidden_field :product_id, value: product.id %></td>
+        <td><%= f.number_field :quantity, value: 1, min: 1%></td>
+        <td><%= f.submit "Add To Cart", class:"btn btn-dark" %></td>
+        <td><%= link_to 'Show Product', product %></td>
+      <% end %>
+  <% end %>
+  </tr>
+  </tbody>
+</table>
+
