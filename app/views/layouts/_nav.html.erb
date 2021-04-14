@@ -1,45 +1,50 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Top navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav me-auto mb-2 mb-md-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" ><%= link_to "Home", root_path %>&nbsp</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><%= link_to "Cart", cart_path %>&nbsp</a>
-        </li>
-        <%if !account_signed_in? %>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><%= link_to "Sign Up",  new_account_registration_path %>&nbsp</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><%= link_to "Log In", new_account_session_path %>&nbsp</a>
-        </li>
-         <%else %>
+<header>
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark mb-4">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Infotronics</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a class="nav-link" href="#"><%= link_to "Sign Out", destroy_account_session_path, method: :delete %>&nbsp</a>
+            <%= link_to "Home", root_path, class:"nav-link"  %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Products", products_path, class:"nav-link"  %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Brands",brands_path, class:"nav-link"  %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Categories", categories_path, class:"nav-link"  %>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <%if !account_signed_in? %>
+            <li class="nav-item">
+              <%= link_to "Sign Up",  new_account_registration_path, class:"nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Log In", new_account_session_path, class:"nav-link"  %>
+            </li>
+          <%else %>
+            <li class="nav-item">
+              <%= link_to "Sign Out", destroy_account_session_path, method: :delete, class:"nav-link"  %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Editar perfil", edit_account_registration_path, class:"nav-link"  %>
+            </li>
+            <li class="nav-item">
+            <%= link_to "Cart", cart_path, class:"nav-link"  %>
           </li>
           <%end%>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><%= link_to "Products", products_path %>&nbsp</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><%= link_to "Brands",brands_path %>&nbsp</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><%= link_to "Categories", categories_path %>&nbsp</a>
-        </li>
-
       </ul>
-      <form class="d-flex">
+      <form class="form-inline text right d-flex ml-auto">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" <%= @search%>>
         <button class="btn btn-outline-success" type="submit">Search</button>
         <select name="selectMarca" id="selectMarca" <%= @selectmarca%>>
-          <option value="0">TODAS LAS MARCAS</option>
+          <option value="0">Marcas</option>
           <option value="1">Apple</option>
           <option value="2">Microsoft</option>
           <option value="3">Samsung</option>
@@ -47,6 +52,10 @@
           <option value="5">Razer</option>
         </select>
       </form>
+        </ul>
+        </form>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</header>
+

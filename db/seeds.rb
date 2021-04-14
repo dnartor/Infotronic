@@ -17,9 +17,10 @@ Brand.create(name: 'Samsung')
 Brand.create(name: 'LG')
 Brand.create(name: 'Razer')
 
-ordenadores1 = Product.create(name: 'Apple iMac 21.5'  , price: 1349, description: 'Intel® Core™ i5-7360U, Iris® Plus Graphics 640 + Magic Keyboard teclado numérico', onsale: false, category_id: 1, brand_id:1)
-ordenadores2 = Product.create(name: 'All in One - Microsoft Surface Studio 2', price: 5499, description:'28"Táctil, Intel®Core™i7-7820HQ, 32GB RAM, 2TB SSD, GTX1070' , onsale: false, category_id: 1, brand_id:2)
-ordenadores3 = Product.create(name: 'All in One - Microsoft Surface Studio 2', price: 4149, description:'28"Táctil, Intel®Core™i7-7820HQ, 16GB RAM, 1TB SSD, GTX1060' , onsale: false, category_id:1, brand_id:2)
+
+ordenadores1 = Product.create(name: 'Apple iMac 21.5', price: 1349, description: 'Intel® Core™ i5-7360U, Iris® Plus Graphics 640 + Magic Keyboard teclado numérico', onsale: false, category_id: 1, brand_id:1)
+ordenadores2 = Product.create(name: 'All in One - Microsoft Surface Studio 2', price: 5499, description:'28"Táctil, Intel®Core™i7-7820HQ, 32GB RAM, 2TB SSD, GTX1070', onsale: false, category_id: 1, brand_id:2)
+ordenadores3 = Product.create(name: 'All in One - Microsoft Surface Studio 2', price: 4149, description:'28"Táctil, Intel®Core™i7-7820HQ, 16GB RAM, 1TB SSD, GTX1060', onsale: false, category_id:1, brand_id:2)
 ordenadores4 = Product.create(name: 'REVENANT PRO', price: 1471, description: 'AMD ryzen', onsale: false, category_id:1, brand_id:5)
 
 ordenadores1.image.attach(io: File.open("app/assets/images/ordenadores/ordenadores1.png"), filename: "ordenadores1.png")
@@ -47,8 +48,8 @@ monitores1.image.attach(io: File.open("app/assets/images/monitores/monitor-1.jpe
 monitores2.image.attach(io: File.open("app/assets/images/monitores/monitor-2.png"), filename: "monitor-2.png")
 monitores3.image.attach(io: File.open("app/assets/images/monitores/monitor-3.jpeg"), filename: "monitor-3.jpeg")
 
-raton1 =Product.create(name: 'Ratón gaming - Razer Naga Trinity', price:80, description: '16000DPI, USB, Óptico, 19 botones personalizables, Negro y verde', onsale: false, category_id: 4, brand_id: 5)
-raton2 =Product.create(name: 'Logitech G502', price: 54, description: 'Hero Ratón Gaming 16000DPI, negro', onsale: false, category_id: 4, brand_id: 4)
+raton1 = Product.create(name: 'Ratón gaming - Razer Naga Trinity', price:80, description: '16000DPI, USB, Óptico, 19 botones personalizables, Negro y verde', onsale: false, category_id: 4, brand_id: 5)
+raton2 = Product.create(name: 'Logitech G502', price: 54, description: 'Hero Ratón Gaming 16000DPI, negro', onsale: false, category_id: 4, brand_id: 4)
 
 raton1.image.attach(io: File.open("app/assets/images/ratones/lg_raton.jpg"), filename: "lg_raton.jpg")
 raton2.image.attach(io: File.open("app/assets/images/ratones/raton-gaming-razer-naga-trinity-galeria-3.jpg"), filename: "raton-gaming-razer-naga-trinity-galeria-3.jpg")
