@@ -1,78 +1,103 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<section class="offset-md-2 col-md-8 col-xs-12 custom-form">
+  <div class="d-flex justify-content-center mt-5 content">
+    <div class="col-md-10 col-xs-12 py-4">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="row">
+        <div class="col-12 text-center">
+          <h1 class="mb-2">Edit <%= resource_name.to_s.humanize %></h1>
+          <hr class="teal accent-3 mb-4 mt-0 mx-auto border-dark" style="width: 200px;">
+        </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <div class="col-12">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+            <div class="row">
+              <!-- Bloque izquierda -->
+              <div class="col-md-6 col-xs-12">
+                <!-- Box name -->
+                <div class="form-group">
+                  <%= f.label :nombre %><br />
+                  <%= f.text_field :nombre, autofocus: true, autocomplete: "nombre" %>
+                </div>
+                <!-- Box name -->
+
+                <!-- Box dni -->
+                <div class="form-group">
+                  <%= f.label :"DNI" %><br />
+                  <%= f.number_field :dni, autofocus: true, autocomplete: "dni" %>
+                </div>
+                <!-- Box idCategoria -->
+
+                <!-- Box Color -->
+                <div class="form-group">
+                  <%= f.label :direccion %><br />
+                  <%= f.text_field :direccion, autofocus: true, autocomplete: "direccion" %>
+                </div>
+                <!-- Box Color -->
+
+                <!-- Box Informacion -->
+                <div class="form-group">
+                  <%= f.label :telefono %><br />
+                  <%= f.number_field :telefono, autofocus: true, autocomplete: "telefono" %>
+                </div>
+                <!-- Box Informacion -->
+                <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                  <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                <% end %>
+                <div class="field">
+                  <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+                  <%= f.password_field :password, autocomplete: "new-password" %>
+                  <% if @minimum_password_length %>
+                    <br />
+                    <em><%= @minimum_password_length %> characters minimum</em>
+                  <% end %>
+                </div>
+
+                <div class="form-group">
+                  <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+                  <%= f.password_field :current_password, autocomplete: "current-password" %>
+                </div>
+              </div>
+
+              <!-- Bloque izquierda -->
+
+              <!-- Bloque derecha -->
+              <div class="col-md-6 col-xs-12">
+
+                <div class="form-group">
+                  <%= f.label :apellidos %><br />
+                  <%= f.text_field :apellidos, autofocus: true, autocomplete: "apellidos" %>
+                </div>
+
+                <div class="form-group">
+                  <%= f.label :pais %><br />
+                  <%= f.text_field :pais, autofocus: true, autocomplete: "pais" %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :"codigo postal" %><br />
+                  <%= f.text_field :cpostal, autofocus: true, autocomplete: "cpostal" %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :email %><br />
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :password_confirmation %><br />
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+                </div>
+
+              </div>
+            </div>
+            <div class="actions">
+              <%= f.submit "Update" %>
+              <%= link_to "Back", :back %>
+            </div>
+          <% end %>
+          <%= render "devise/shared/links" %>
+          <!-- Bloque Derecha -->
+        </div>
+
+      </div>
+    </div>
   </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :nombre %><br />
-    <%= f.text_field :nombre, autofocus: true, autocomplete: "nombre" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :apellidos %><br />
-    <%= f.text_field :apellidos, autofocus: true, autocomplete: "apellidos" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :"DNI" %><br />
-    <%= f.number_field :dni, autofocus: true, autocomplete: "dni" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :pais %><br />
-    <%= f.text_field :pais, autofocus: true, autocomplete: "pais" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :direccion %><br />
-    <%= f.text_field :direccion, autofocus: true, autocomplete: "direccion" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :telefono %><br />
-    <%= f.number_field :telefono, autofocus: true, autocomplete: "telefono" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :"codigo postal" %><br />
-    <%= f.text_field :cpostal, autofocus: true, autocomplete: "cpostal" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</section>
