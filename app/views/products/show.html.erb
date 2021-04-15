@@ -1,40 +1,65 @@
 <p id="notice"><%= notice %></p>
+<section class="offset-md-1 col-md-10 col-xs-12">
+  <div class="d-flex justify-content-center mt-5 content">
+    <div class="col-sm-12 py-4">
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
+      <div class="row">
+        <div class="col-md-3 mb-3 text-center">
+          <%= image_tag(@product.image, class:"img-fluid rounded") %>
+        </div>
+        <div class="col-md-5">
+          <h3><%= @product.name %></h3>
+          <h5><%= @product.description %></h5>
+        </div>
+        <div class="col-md-4 mt-5">
+          <table class="table">
+            <tbody>
+            <tr>
+              <th>
+                Marca
+              </th>
+              <td>
+                <%= @product.brand.name %>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Categoría
+              </th>
+              <td>
+                <%= @product.category.name %>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-3 text-center mt-3">
+          <div class="alert alert-dark p-2 my-auto">
+             <h5> <%= number_to_currency @product.price, :locale => :en %></h5>
+          </div>
+        </div>
+        <div class="col-md-4 text-center mt-3">
+          <p>aqui va el boton añadir al carrito</p>
+        </div>
+        <div class="col-md-4 text-center mt-3">
+          <%= link_to 'Back', products_path, class:"btn btn-info" %>
+        </div>
 
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
+      </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
+    </div>
+  </div>
+</section>
 
-<p>
-  <strong > brand: </strong>
-  <%= @product.brand.name %>
-</p>
 
-<p>
-  <strong>Imagen:</strong>
-  <%= image_tag(@product.image) %>
-</p>
-
+<!--
 <p>
   <strong>Onsale:</strong>
-  <%= @product.onsale %>
+  <%#= @product.onsale %>
 </p>
-
-<p>
-  <strong > Category: </strong>
-  <%= @product.category.name %>
-</p>
+-->
 
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+
+<%#= link_to 'Edit', edit_product_path(@product) %> |
+
