@@ -9,5 +9,5 @@
 <% end%>
 <h2>Subtotal: <%= number_to_currency item.total , :locale => :en%></h2>
 <% end %>
-
+<%= link_to "Comprar", order_items_deleteAll_path,method: :delete,data: { confirm: '¿Confirmar compra?' } %>
 <h3>Your current order has a total of: <%= number_to_currency current_order.subtotal, :locale => :en %></h3>

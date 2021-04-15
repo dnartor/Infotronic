@@ -20,6 +20,11 @@ class OrderItemsController < ApplicationController
     @order_items = current_order.order_items
     redirect_to "http://127.0.0.1:3000/cart"
   end
+  def destroy_all
+    current_order.destroy
+    redirect_to "http://127.0.0.1:3000/cart"
+  end
+
 
   private
 
