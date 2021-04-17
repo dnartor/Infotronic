@@ -4,7 +4,7 @@
 
       <div class="row">
         <div class="col-12 text-center">
-          <h1 class="mb-2">Editar <%= resource_name.to_s.humanize %></h1>
+          <h1 class="mb-2">Editar cuenta</h1>
           <hr class="teal accent-3 mb-4 mt-0 mx-auto border-dark" style="width: 200px;">
         </div>
 
@@ -12,38 +12,42 @@
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
             <%= render "devise/shared/error_messages", resource: resource %>
             <div class="row">
+
               <!-- Bloque izquierda -->
               <div class="col-md-6 col-xs-12">
-                <!-- Box name -->
+                <!-- Box Nombre -->
                 <div class="form-group">
                   <%= f.label :nombre %><br />
                   <%= f.text_field :nombre, autofocus: true, autocomplete: "nombre" %>
                 </div>
-                <!-- Box name -->
+                <!-- Box Nombre -->
 
-                <!-- Box dni -->
+                <!-- Box Dni -->
                 <div class="form-group">
                   <%= f.label :dni, "DNI" %><br />
                   <%= f.number_field :dni, autofocus: true, autocomplete: "dni" %>
                 </div>
-                <!-- Box idCategoria -->
+                <!-- Box Dni -->
 
-                <!-- Box Color -->
+                <!-- Box Direccion -->
                 <div class="form-group">
                   <%= f.label :direccion, "Dirección" %><br />
                   <%= f.text_field :direccion, autofocus: true, autocomplete: "direccion" %>
                 </div>
-                <!-- Box Color -->
+                <!-- Box Direccion -->
 
-                <!-- Box Informacion -->
+                <!-- Box Telefono -->
                 <div class="form-group">
                   <%= f.label :telefono, "Teléfono" %><br />
                   <%= f.number_field :telefono, autofocus: true, autocomplete: "telefono" %>
                 </div>
-                <!-- Box Informacion -->
+                <!-- Box Telefono -->
+
+                <!-- Box Contraseña nueva -->
                 <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                   <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
                 <% end %>
+
                 <div class="field">
                   <%= f.label :password, "Nueva contraseña" %><br />
                   <%= f.password_field :password, autocomplete: "new-password", placeholder: "Opcional" %>
@@ -52,41 +56,58 @@
                     <em><%= @minimum_password_length %> caracteres mínimo</em>
                   <% end %>
                 </div>
+                <!-- Box Contraseña nueva -->
 
+                <!-- Box Contraseña -->
                 <div class="form-group">
                   <%= f.label :current_password, "Contraseña actual" %><br />
                   <%= f.password_field :current_password, autocomplete: "current-password" %>
                 </div>
               </div>
+              <!-- Box Contraseña -->
 
               <!-- Bloque izquierda -->
 
               <!-- Bloque derecha -->
               <div class="col-md-6 col-xs-12">
 
+                <!-- Box Apellidos -->
                 <div class="form-group">
                   <%= f.label :apellidos %><br />
                   <%= f.text_field :apellidos, autofocus: true, autocomplete: "apellidos" %>
                 </div>
+                <!-- Box Apellidos -->
 
+                <!-- Box Pais -->
                 <div class="form-group">
                   <%= f.label :pais, "País" %><br />
                   <%= f.text_field :pais, autofocus: true, autocomplete: "pais" %>
                 </div>
+                <!-- Box Pais -->
+
+                <!-- Box Codigo postal -->
                 <div class="form-group">
                   <%= f.label :cpostal, "Código postal" %><br />
                   <%= f.text_field :cpostal, autofocus: true, autocomplete: "cpostal" %>
                 </div>
+                <!-- Box Codigo postal -->
+
+                <!-- Box Correo -->
                 <div class="form-group">
                   <%= f.label :email, "Correo electrónico" %><br />
                   <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
                 </div>
+                <!-- Box Correo -->
+
+                <!-- Box Confirmar contraseña -->
                 <div class="form-group">
                   <%= f.label :password_confirmation, "Confirmar contraseña" %><br />
                   <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
                 </div>
+                <!-- Box Confirmar contraseña -->
 
               </div>
+
             </div>
             <div class="actions">
               <%= f.submit "Guardar", class: "btn btn-dark" %>
