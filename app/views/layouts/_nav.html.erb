@@ -8,51 +8,49 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <%= link_to "Home", root_path, class:"nav-link"  %>
+            <%= link_to "Catálogo", root_path, class:"nav-link"  %>
           </li>
           <li class="nav-item">
-            <%= link_to "Products", products_path, class:"nav-link"  %>
+            <%= link_to "Productos", products_path, class:"nav-link"  %>
           </li>
           <li class="nav-item">
-            <%= link_to "Brands",brands_path, class:"nav-link"  %>
+            <%= link_to "Marcas",brands_path, class:"nav-link"  %>
           </li>
           <li class="nav-item">
-            <%= link_to "Categories", categories_path, class:"nav-link"  %>
+            <%= link_to "Categorías", categories_path, class:"nav-link"  %>
           </li>
         </ul>
         <ul class="navbar-nav">
           <%if !account_signed_in? %>
             <li class="nav-item">
-              <%= link_to "Sign Up",  new_account_registration_path, class:"nav-link" %>
+              <%= link_to "Crear cuenta",  new_account_registration_path, class:"nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Log In", new_account_session_path, class:"nav-link"  %>
+              <%= link_to "Iniciar sesión", new_account_session_path, class:"nav-link"  %>
             </li>
           <%else %>
             <li class="nav-item">
-              <%= link_to "Sign Out", destroy_account_session_path, method: :delete, class:"nav-link"  %>
+              <%= link_to "Cerrar sesión", destroy_account_session_path, method: :delete, class:"nav-link"  %>
             </li>
             <li class="nav-item">
               <%= link_to "Editar perfil", edit_account_registration_path, class:"nav-link"  %>
             </li>
             <li class="nav-item">
-            <%= link_to "Cart", cart_path, class:"nav-link"  %>
+            <%= link_to "Carrito", cart_path, class:"nav-link"  %>
           </li>
           <%end%>
-      </ul>
-      <form class="form-inline text right d-flex ml-auto">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" <%= @search%>>
-        <button class="btn btn-outline-success" type="submit">Search</button>
-        <select name="selectMarca" id="selectMarca" <%= @selectmarca%>>
-          <option value="0">Marcas</option>
-          <option value="1">Apple</option>
-          <option value="2">Microsoft</option>
-          <option value="3">Samsung</option>
-          <option value="4">LG</option>
-          <option value="5">Razer</option>
-        </select>
-      </form>
         </ul>
+        <form class="form-inline text right d-flex ml-auto">
+          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" name="search" <%= @search%>>
+          <button class="btn btn-outline-success" type="submit">Buscar</button>
+          <select class="ml-2" name="selectMarca" id="selectMarca" <%= @selectmarca%>>
+            <option value="0">Marcas</option>
+            <option value="1">Apple</option>
+            <option value="2">Microsoft</option>
+            <option value="3">Samsung</option>
+            <option value="4">LG</option>
+            <option value="5">Razer</option>
+          </select>
         </form>
       </div>
     </div>

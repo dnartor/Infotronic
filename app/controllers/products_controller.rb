@@ -13,6 +13,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1 or /products/1.json
   def show
+    @order_item = current_order.order_items.new
     @product = Product.includes(:category, :brand).find(params[:id])
   end
 
