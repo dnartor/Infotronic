@@ -13,12 +13,16 @@
                   <div class="alert alert-dark p-2 my-auto">
                     <h5><%= number_to_currency product.price, :locale => :en %></h5>
                   </div>
-                  <div class="col-md-12 text-center mb-5">
+                  <%
+=begin%>
+ <div class="col-md-12 text-center mb-5">
                     <%= form_for(@order_item, remote: true) do |f| %>
                       <%= f.hidden_field :product_id, value: product.id %>
                       <%= f.submit "Añadir al carrito", class:"btn btn-dark mt-3" %>
                     <% end %>
-                  </div>
+                  </div> 
+<%
+=end%>
                 </div>
               </div>
 
@@ -26,7 +30,7 @@
                 <h3><%= product.name %></h3>
                 <p><%= product.description%></p>
                 <div class="col-md-12 text-center mt-3">
-                  <%= link_to 'Más información', product, class: "btn btn-info" %>
+                  <%= link_to 'Más información', product, class: "btn btn-info text-white" %>
                 </div>
               </div>
 
