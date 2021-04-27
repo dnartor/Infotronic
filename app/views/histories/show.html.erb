@@ -25,14 +25,9 @@
           <td class="text-center align-middle">
             <%= form_for(item, remote: true) do |f| %>
               <%= f.hidden_field :product_id, value: item.product.id %>
-              <%= f.number_field :quantity, value: item.quantity.to_i%><br>
-              <%= f.submit "Actualizar", class: "btn btn-dark mt-2" %>
             <% end%>
           </td>
           <td class="text-center align-middle"><p><%= number_to_currency item.total , :locale => :en%></p></td>
-          <td class="text-center align-middle">
-            <%= link_to "Eliminar", item, method: :delete, remote: true, class: "btn btn-danger" %>
-          </td>
 
         </tr>
 <% end %>
