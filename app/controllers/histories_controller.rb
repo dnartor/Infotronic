@@ -8,11 +8,13 @@ class HistoriesController < ApplicationController
 
   # GET /histories/1 or /histories/1.json
   def show
+    @buyedItems = current_order.order_items
   end
 
   # GET /histories/new
   def new
-    @history = current_order.order_items
+    @history = History.new
+    
   end
 
   # GET /histories/1/edit
@@ -21,7 +23,8 @@ class HistoriesController < ApplicationController
 
   # POST /histories or /histories.json
   def create
-    @history = History.new()
+    @history = History.new(history_params)
+
     respond_to do |format|
       if @history.save
         format.html { redirect_to @history, notice: "History was successfully created." }
@@ -63,6 +66,6 @@ class HistoriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def history_params
-      params.fetch(:history, {})
+      params.require(:history).permit(:tarjeta, :domicilio)
     end
 end

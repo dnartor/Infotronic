@@ -14,6 +14,8 @@ class HistoriesTest < ApplicationSystemTestCase
     visit histories_url
     click_on "New History"
 
+    check "Domicilio" if @history.domicilio
+    fill_in "Tarjeta", with: @history.tarjeta
     click_on "Create History"
 
     assert_text "History was successfully created"
@@ -24,6 +26,8 @@ class HistoriesTest < ApplicationSystemTestCase
     visit histories_url
     click_on "Edit", match: :first
 
+    check "Domicilio" if @history.domicilio
+    fill_in "Tarjeta", with: @history.tarjeta
     click_on "Update History"
 
     assert_text "History was successfully updated"

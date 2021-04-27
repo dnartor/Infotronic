@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_27_123055) do
+ActiveRecord::Schema.define(version: 2021_04_27_141641) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "nombre", null: false
@@ -73,6 +73,8 @@ ActiveRecord::Schema.define(version: 2021_04_27_123055) do
   end
 
   create_table "histories", force: :cascade do |t|
+    t.string "tarjeta"
+    t.boolean "domicilio"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
