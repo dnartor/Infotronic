@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'order_items/update'
   get 'cart', to: 'cart#show'
   delete '/order_items/deleteAll', to:'order_items#destroy_all'
+  get 'ofertas', to: 'ofertas#show'
   resources :brands
   resources :categories
   resources :products
