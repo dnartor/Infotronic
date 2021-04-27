@@ -10,20 +10,18 @@
           <li class="nav-item">
             <%= link_to "Catálogo", root_path, class:"nav-link"  %>
           </li>
-<%
-=begin%>
+
            
-          <li class="nav-item">
-            <%= link_to "Productos", products_path, class:"nav-link"  %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Marcas",brands_path, class:"nav-link"  %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Categorías", categories_path, class:"nav-link"  %>
-          </li> 
-<%
-=end%>
+<!--          <li class="nav-item">-->
+            <%#= link_to "Productos", products_path, class:"nav-link"  %>
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+            <%#= link_to "Marcas",brands_path, class:"nav-link"  %>
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+            <%#= link_to "Categorías", categories_path, class:"nav-link"  %>
+<!--          </li> -->
+
         </ul>
         <ul class="navbar-nav">
           <%if !account_signed_in? %>
@@ -55,6 +53,14 @@
             <option value="3">Samsung</option>
             <option value="4">LG</option>
             <option value="5">Razer</option>
+          </select>
+          <select class="ml-2" name="selectcategoria" id="selectcategoria" <%= @selectcategoria%>>
+            <option value="0">Categoría</option>
+            <option value="1">Ordenadores</option>
+            <option value="2">Monitores</option>
+            <option value="3">Teclados</option>
+            <option value="4">Ratones</option>
+            <option value="5">Portátiles</option>
           </select>
         </form>
       </div>
