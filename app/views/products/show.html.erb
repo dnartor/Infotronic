@@ -44,15 +44,9 @@
         </div>
         <div class="col-md-4 text-center mt-3">
           <%= form_for(@order_item, remote: true) do |f| %>
-            <% if @product.onsale == true %>
-              <%= f.hidden_field :product_id, value: @product.id %>
-              <%= f.number_field :quantity, value: 1, min: 1%>
-              <%= f.submit "Añadir al carrito", class: "btn btn-dark mt-2" %>
-            <% else %>
-              <%= f.hidden_field :product_id, value: @product.id %>
-              <%= f.number_field :quantity, value: 1, min: 1%>
-              <%= f.submit "Añadir al carrito", class: "btn btn-dark mt-2" %>
-            <% end %>
+            <%= f.hidden_field :product_id, value: @product.id %>
+            <%= f.number_field :quantity, value: 1, min: 1%>
+            <%= f.submit "Añadir al carrito", class: "btn btn-dark mt-2" %>
           <% end %>
         </div>
         <div class="col-md-4 text-center mt-3">
