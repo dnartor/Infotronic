@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :claims
   get 'order_items/create'
   get 'order_items/update'
   get 'cart', to: 'cart#show'
