@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_09_105907) do
+ActiveRecord::Schema.define(version: 2021_04_28_113841) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "nombre", default: "", null: false
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 2021_04_09_105907) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "category_id"
     t.integer "brand_id"
+    t.decimal "priceOnsale"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

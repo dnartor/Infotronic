@@ -7,11 +7,15 @@ class OrderItem < ApplicationRecord
   def unit_price
     # If there is a record
     if persisted?
-      self[:unit_price]
-    else
-      product.price
+      if product.onsale == true
+        product.priceOnsale
+      else
+        self[:unit_price]
+      end
+      else
+        product.price
+      end
     end
-  end
 
   def total
     unit_price * quantity
