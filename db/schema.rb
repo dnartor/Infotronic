@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_09_105907) do
+ActiveRecord::Schema.define(version: 2021_04_28_140455) do
 
   create_table "accounts", force: :cascade do |t|
-    t.string "nombre", default: "", null: false
-    t.string "apellidos", default: "", null: false
+    t.string "nombre", null: false
+    t.string "apellidos", null: false
     t.integer "telefono", null: false
     t.integer "cpostal", null: false
-    t.string "direccion", default: "", null: false
+    t.string "direccion", null: false
     t.integer "dni", null: false
-    t.string "pais", default: "", null: false
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
+    t.string "pais", null: false
+    t.string "email", null: false
+    t.string "encrypted_password", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -72,6 +72,20 @@ ActiveRecord::Schema.define(version: 2021_04_09_105907) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "list_items", force: :cascade do |t|
+    t.integer "product_id", null: false
+    t.integer "list_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["list_id"], name: "index_list_items_on_list_id"
+    t.index ["product_id"], name: "index_list_items_on_product_id"
+  end
+
+  create_table "lists", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "order_items", force: :cascade do |t|
     t.integer "quantity"
     t.integer "product_id", null: false
@@ -105,6 +119,8 @@ ActiveRecord::Schema.define(version: 2021_04_09_105907) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "list_items", "lists"
+  add_foreign_key "list_items", "products"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
 end

@@ -14,6 +14,7 @@ class PublicController < ApplicationController
     else
       @products = Product.all
       @order_item = current_order.order_items.new
+      @list_item = current_list.list_items.new
     end
   end
 end
