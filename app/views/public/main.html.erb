@@ -14,13 +14,7 @@
                     <h5><%= number_to_currency product.price, :locale => :en %></h5>
                   </div>
               
-
-    
-
-        <%= form_for(@list_item, remote: true) do |l| %>
-        <%= l.hidden_field :product_id, value: product.id %>
-        <%= l.submit "Add To LCart" %>
-        <% end %>
+   
                 </div>
               </div>
 
