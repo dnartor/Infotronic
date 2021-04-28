@@ -1,3 +1,3 @@
 class History < ApplicationRecord
-    #belongs_to :order_item
+    has_one :order_item, class_name: "buyedItems", foreign_key: "buyed_items_id"
 end

@@ -14,7 +14,7 @@ class HistoriesController < ApplicationController
   # GET /histories/new
   def new
     @history = History.new
-    #OrderItem.destroy_all
+    
   end
 
   # GET /histories/1/edit

@@ -25,7 +25,6 @@ class OrderItemsController < ApplicationController
     redirect_to "http://127.0.0.1:3000/cart"
   end
 
-
   private
 
   def order_params
