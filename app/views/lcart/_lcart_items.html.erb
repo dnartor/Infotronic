@@ -1,0 +1,7 @@
+<% @list_items.each do |item| %>
+<h3><%= item.product.name%></h3>
+<%= form_for(item, remote: true) do |f| %>
+<%= f.hidden_field :product_id, value: item.product.id %>
+<%= link_to "Remove Items", item, method: :delete, remote: true %>
+<% end%>
+<% end %>

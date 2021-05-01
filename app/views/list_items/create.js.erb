@@ -1,0 +1,5 @@
+<% if @list.errors.any? || @list_item.errors.any? %>
+	alert("Invalid")
+<% else %>
+	$(".lcart").html("<%= escape_javascript(render 'lcart/lcart') %>")
+<% end %>

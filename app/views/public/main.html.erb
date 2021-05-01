@@ -13,16 +13,8 @@
                   <div class="alert alert-dark p-2 my-auto">
                     <h5><%= number_to_currency product.price, :locale => :en %></h5>
                   </div>
-                  <%
-=begin%>
- <div class="col-md-12 text-center mb-5">
-                    <%= form_for(@order_item, remote: true) do |f| %>
-                      <%= f.hidden_field :product_id, value: product.id %>
-                      <%= f.submit "Añadir al carrito", class:"btn btn-dark mt-3" %>
-                    <% end %>
-                  </div> 
-<%
-=end%>
+              
+   
                 </div>
               </div>
 
