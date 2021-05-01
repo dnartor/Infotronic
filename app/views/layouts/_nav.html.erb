@@ -1,7 +1,9 @@
 <header>
   <nav class="navbar navbar-expand-md bg-dark navbar-dark mb-4">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Infotronics</a>
+
+      <%= image_tag "logo_500x500_white.png", class:"d-inline-block align-top", height:'50' %>
+<!--      <a class="navbar-brand" href="#">Infotronics</a>-->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -10,20 +12,18 @@
           <li class="nav-item">
             <%= link_to "Catálogo", root_path, class:"nav-link"  %>
           </li>
-<%
-=begin%>
+
            
-          <li class="nav-item">
-            <%= link_to "Productos", products_path, class:"nav-link"  %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Marcas",brands_path, class:"nav-link"  %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Categorías", categories_path, class:"nav-link"  %>
-          </li> 
-<%
-=end%>
+<!--          <li class="nav-item">-->
+            <%#= link_to "Productos", products_path, class:"nav-link"  %>
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+            <%#= link_to "Marcas",brands_path, class:"nav-link"  %>
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+            <%#= link_to "Categorías", categories_path, class:"nav-link"  %>
+<!--          </li> -->
+
         </ul>
         <ul class="navbar-nav">
           <%if !account_signed_in? %>
