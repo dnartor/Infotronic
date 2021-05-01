@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Histories</h1>
+<h1>Historial de compra</h1>
 
 <table>
   <thead>
@@ -16,14 +16,11 @@
       <tr>
         <td><%= history.tarjeta %></td>
         <td><%= history.domicilio %></td>
-        <td><%= link_to 'Show', history %></td>
-        <td><%= link_to 'Edit', edit_history_path(history) %></td>
-        <td><%= link_to 'Destroy', history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', history %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New History', new_history_path %>
+<%= link_to "Volver al catálogo",order_items_deleteAll_path,method: :delete,class: "btn btn-success mt-2 text-white"%> 

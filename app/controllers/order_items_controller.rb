@@ -22,7 +22,7 @@ class OrderItemsController < ApplicationController
   end
   def destroy_all
     current_order.destroy
-    redirect_to "http://127.0.0.1:3000/cart"
+    redirect_to root_path
   end
 
   private
