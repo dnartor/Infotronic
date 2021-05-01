@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'list_items/create'
   get 'list_items/destroy'
   get 'lcart', to: 'lcart#show'
+  resources :claims
   get 'order_items/create'
   get 'order_items/update'
   get 'order_items/destroy'

@@ -72,6 +72,14 @@ ActiveRecord::Schema.define(version: 2021_05_01_115859) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "claims", force: :cascade do |t|
+    t.string "description"
+    t.integer "account_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_claims_on_account_id"
+  end
+
   create_table "histories", force: :cascade do |t|
     t.integer "tarjeta"
     t.boolean "domicilio"
@@ -126,6 +134,7 @@ ActiveRecord::Schema.define(version: 2021_05_01_115859) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "claims", "accounts"
   add_foreign_key "list_items", "lists"
   add_foreign_key "list_items", "products"
   add_foreign_key "order_items", "orders"
