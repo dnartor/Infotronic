@@ -130,6 +130,7 @@ ActiveRecord::Schema.define(version: 2021_05_01_115859) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "category_id"
     t.integer "brand_id"
+    t.decimal "priceOnsale"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
