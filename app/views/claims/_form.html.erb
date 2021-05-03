@@ -19,7 +19,7 @@
             <% end %>
 
             <div class="form-group text-left">
-              <%= form.label :description %>
+              <%= form.label :description, "Descripción" %>
               <%= form.text_area :description, class:"form-control", rows: 3%>
             </div>
 
@@ -29,8 +29,8 @@
             </div>
 
             <div class="actions text-right">
-              <%= link_to 'Volver', claims_path, class:"btn btn-dark text-white" %>
-              <%= link_to "Enviar", form.submit, class:"btn btn-warning" %>
+              <%#= link_to 'Volver', claims_path, class:"btn btn-dark text-white" %>
+              <%= form.submit "Enviar", class: "btn btn-dark" %>
             </div>
           <% end %>
         </div>

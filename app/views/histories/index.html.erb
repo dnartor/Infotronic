@@ -24,7 +24,11 @@
             </td>
 
             <td class="text-center align-middle">
-              <%= history.domicilio %>
+              <% if history.domicilio %>
+                <p>Sí</p>
+              <% else %>
+                <p>No</p>
+              <% end %>
             </td>
 
             <td class="text-center align-middle">
