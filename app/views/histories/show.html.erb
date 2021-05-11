@@ -42,6 +42,21 @@
         </tbody>
       </table>
     </div>
+    <%if @history.domicilio === true %>
+      <div class="text-center align-middle">
+        <%days = Time.now.strftime("%d %b %y").to_i - @history.created_at.strftime("%d %b %y").to_i%>
+        <%dia_llegada = @history.created_at + 5.days %>
+        <h3>Seguimiento</h3>
+        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto border-dark" style="width: 200px;">
+        <div class="table-responsive">
+        <%if days <5 %>
+        <h4> El pedido llegará el <%=dia_llegada.strftime("%d %b %y")%> , quedan <%=5 -days%> días.
+        <%else%>
+          <h4>El pedido llegó el <%=dia_llegada.strftime("%d %b %y")%>.</h4>
+        <%end%>
+        </div>
+      </div>
+      <%end%>
     <div class="text-center align-middle">
       <%= link_to 'Volver', histories_path, class: "btn btn-success mt-2 text-white" %>
     </div>

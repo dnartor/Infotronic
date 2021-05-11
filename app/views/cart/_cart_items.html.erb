@@ -55,6 +55,7 @@
     </div>
     <div class="text-center align-middle">
       <%= link_to "Comprar", new_history_path, class: "btn btn-success mt-2 text-white" %>
+      <%= link_to "Eliminar carrito", order_items_deleteAll_path, method: :delete, remote: true,class: "btn btn-danger mt-2 text-white" %>
     </div>
   </div>
 </section>

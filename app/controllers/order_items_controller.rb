@@ -22,7 +22,7 @@ class OrderItemsController < ApplicationController
   end
   def destroy_all
     current_order.destroy
-    redirect_to root_path
+    redirect_to cart_path
   end
 
   private
