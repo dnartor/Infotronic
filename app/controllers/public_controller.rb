@@ -3,6 +3,8 @@ class PublicController < ApplicationController
     @search = params[:search]
     @selectmarca = params[:selectMarca]
     @selectcategoria = params[:selectcategoria]
+    @checkrecientes = params[:recientes]
+
     if @search
       if @selectmarca == '0' && @selectcategoria == '0'
         @products = Product.where("name lIKE ?","%#{@search}%")
@@ -21,9 +23,12 @@ class PublicController < ApplicationController
             @products = Product.where(brand_id:@selectmarca)
             @products = @products.where(category_id:@selectcategoria)
             @products = @products.where("name lIKE ?","%#{@search}%")
-            @order_item = current_order.order_items.new
           end
         end
+      end
+      if @checkrecientes
+        @products = @products.order("id desc")
+        @order_item = current_order.order_items.new
       end
     else
       @products = Product.all
