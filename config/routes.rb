@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :histories
   get 'list_items/create'
   get 'list_items/destroy'
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
   delete '/order_items/deleteAll', to:'order_items#destroy_all'
   get 'cart', to: 'cart#show'
   get 'ofertas', to: 'ofertas#show'
+  get 'top_ventas', to: 'top_ventas#show'
   resources :brands
   resources :categories
   resources :products
