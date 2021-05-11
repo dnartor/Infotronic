@@ -11,17 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
+  <div class="form-group">
+    <%= form.label :name, "Nombre" %><br>
     <%= form.text_field :name %>
   </div>
 
-  <div class="field">
-    <%= form.label :details %>
+  <div class="form-group">
+    <%= form.label :details, "Detalles" %><br>
     <%= form.text_area :details %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Guardar", class: "btn btn-dark text-white" %>
+    <%= link_to 'Cancelar', categories_path, class: "btn btn-warning text-white" %>
   </div>
 <% end %>
