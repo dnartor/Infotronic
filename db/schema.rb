@@ -10,23 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_28_140455) do
+ActiveRecord::Schema.define(version: 2021_05_15_200703) do
 
   create_table "accounts", force: :cascade do |t|
-    t.string "nombre", default: "", null: false
-    t.string "apellidos", default: "", null: false
+    t.string "nombre", null: false
+    t.string "apellidos", null: false
     t.integer "telefono", null: false
     t.integer "cpostal", null: false
-    t.string "direccion", default: "", null: false
+    t.string "direccion", null: false
     t.integer "dni", null: false
-    t.string "pais", default: "", null: false
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
+    t.string "pais", null: false
+    t.string "email", null: false
+    t.string "encrypted_password", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "isAdmin", default: false, null: false
     t.index ["email"], name: "index_accounts_on_email", unique: true
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
   end
@@ -81,7 +82,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_140455) do
   end
 
   create_table "histories", force: :cascade do |t|
-    t.string "tarjeta"
+    t.integer "tarjeta"
     t.boolean "domicilio"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

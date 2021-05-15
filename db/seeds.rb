@@ -66,3 +66,4 @@ portatil3.image.attach(io: File.open("app/assets/images/portatiles/teclado-3.PNG
 portatil4.image.attach(io: File.open("app/assets/images/portatiles/teclado-4.PNG"), filename: "teclado-4.PNG")
 portatil5.image.attach(io: File.open("app/assets/images/portatiles/teclado-5.PNG"), filename: "teclado-5.PNG")
 
+Account.create(nombre: "Admin", apellidos: "admin", telefono: "123456", cpostal: "12345", direccion: "asd", dni: "321456", pais: "asdsa", email: "admin@gmail.com", password: "123456", isAdmin: true)
