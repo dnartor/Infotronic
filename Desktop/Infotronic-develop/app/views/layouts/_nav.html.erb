@@ -1,0 +1,108 @@
+<header>
+<link id="pagestyle" rel="stylesheet" href="light.css">
+  <nav class="navbar navbar-expand bg-dark navbar-dark mb-4">
+    <div class="container-fluid">
+      <%= image_tag "logo_500x500_white.png", class:"d-inline-block align-top", height:'50' %>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <%= link_to "Catálogo", root_path, class:"nav-link"  %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Ofertas", ofertas_path, class:"nav-link"  %>
+          </li>
+          <li>
+          <% if cookies[:moon] %>
+              <%= button_to 'Dark Mode', sun_path, method: :get%>
+              <% else %>
+              <%= button_to 'Light Mode', moon_path, method: :get%>
+              <% end %>
+          </li>
+            <% if account_signed_in? %>
+            <li class="nav-item">
+              <%= link_to "Favoritos", lcart_path, class:"nav-link"  %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Carrito", cart_path, class:"nav-link"  %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Historial de compra", histories_path, class:"nav-link"  %>
+            </li>
+          <% end %>
+
+           
+<!--          <li class="nav-item">-->
+            <%#= link_to "Productos", products_path, class:"nav-link"  %>
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+            <%#= link_to "Marcas",brands_path, class:"nav-link"  %>
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+            <%#= link_to "Categorías", categories_path, class:"nav-link"  %>
+<!--          </li> -->
+
+        </ul>
+
+        <form class="form-inline">
+           <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" name="search" <%= @search%>>
+           <button class="btn btn-outline-success" type="submit">Buscar</button>
+
+           <select class="ml-2" name="selectcategoria" id="selectcategoria" <%= @selectcategoria%>>
+             <option value="0">Categoría</option>
+             <option value="1">Ordenadores</option>
+             <option value="2">Monitores</option>
+             <option value="3">Teclados</option>
+             <option value="4">Ratones</option>
+             <option value="5">Portátiles</option>
+           </select>
+
+           <select class="ml-2" name="selectMarca" id="selectMarca" <%= @selectmarca%>>
+              <option value="0">Marcas</option>
+              <option value="1">Apple</option>
+              <option value="2">Microsoft</option>
+              <option value="3">Samsung</option>
+              <option value="4">LG</option>
+              <option value="5">Razer</option>
+           </select>
+
+        </form>
+
+        <ul class="navbar-nav mb-2 mb-md-0">
+          <%if !account_signed_in? %>
+            <li class="nav-item">
+              <%= link_to "Crear cuenta", new_account_registration_path, class:"nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Iniciar sesión", new_account_session_path, class:"nav-link" %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "Editar perfil", edit_account_registration_path, class:"nav-link"  %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Cerrar sesión", destroy_account_session_path, method: :delete, class:"nav-link"  %>
+            </li>
+          <%end%>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+</header>
+
+<%# <script>
+
+const checkbox = document.getElementById('checkbox');
+
+checkbox.addEventListener('change',() => {
+
+    document.body.classList.toggle('dark')
+
+});
+</script> %>
+
+
+
