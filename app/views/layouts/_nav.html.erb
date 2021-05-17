@@ -6,6 +6,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
+        
         <ul class="navbar-nav mr-auto mb-2 mb-md-0">
           <li class="nav-item">
             <%= link_to "Catálogo", root_path, class:"nav-link"  %>
@@ -23,6 +24,7 @@
             <li class="nav-item">
               <%= link_to "Historial de compra", histories_path, class:"nav-link"  %>
             </li>
+            
           <% end %>
 
            
@@ -39,29 +41,26 @@
         </ul>
 
         <form class="form-inline">
-           <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" name="search" <%= @search%>>
-           <button class="btn btn-outline-success" type="submit">Buscar</button>
-
-           <select class="ml-2" name="selectcategoria" id="selectcategoria" <%= @selectcategoria%>>
-             <option value="0">Categoría</option>
-             <option value="1">Ordenadores</option>
-             <option value="2">Monitores</option>
-             <option value="3">Teclados</option>
-             <option value="4">Ratones</option>
-             <option value="5">Portátiles</option>
-           </select>
-
-           <select class="ml-2" name="selectMarca" id="selectMarca" <%= @selectmarca%>>
-              <option value="0">Marcas</option>
-              <option value="1">Apple</option>
-              <option value="2">Microsoft</option>
-              <option value="3">Samsung</option>
-              <option value="4">LG</option>
-              <option value="5">Razer</option>
-           </select>
-
-          <label style="color: white"><input type="checkbox" id="recientes" name="recientes" <%= @checkrecientes%>> Más recientes</label>
-
+          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" name="search" <%= @search%>>
+          <button class="ml-2 btn btn-outline-success" type="submit">Buscar</button>
+          <select class="ml-2 form-select form-select-sm text-white border-success bg-secondary" name="selectcategoria" id="selectcategoria"<%= @selectcategoria%>>
+            <option value="0">Categoría</option>
+            <option value="1">Ordenadores</option>
+            <option value="2">Monitores</option>
+            <option value="3">Teclados</option>
+            <option value="4">Ratones</option>
+            <option value="5">Portátiles</option>
+          </select>
+          <select class="ml-2 form-select form-select-sm text-white border-success bg-secondary" name="selectMarca" id="selectMarca"<%= @selectmarca%>>
+            <option value="0">Marcas</option>
+            <option value="1">Apple</option>
+            <option value="2">Microsoft</option>
+            <option value="3">Samsung</option>
+            <option value="4">LG</option>
+            <option value="5">Razer</option>
+        </select>
+        <input type="checkbox" class=" ml-2 btn-check" id="btn-check-outlined" name="recientes" autocomplete="off" <%= @checkrecientes%>>
+        <label class="ml-1 btn btn-outline-secondary border-success active" for="btn-check-outlined">Más recientes</label>
         </form>
 
         <ul class="navbar-nav mb-2 mb-md-0">
