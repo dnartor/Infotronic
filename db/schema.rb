@@ -10,23 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_28_140455) do
+ActiveRecord::Schema.define(version: 2021_05_17_112201) do
 
   create_table "accounts", force: :cascade do |t|
-    t.string "nombre", default: "", null: false
-    t.string "apellidos", default: "", null: false
+    t.string "nombre", null: false
+    t.string "apellidos", null: false
     t.integer "telefono", null: false
     t.integer "cpostal", null: false
-    t.string "direccion", default: "", null: false
+    t.string "direccion", null: false
     t.integer "dni", null: false
-    t.string "pais", default: "", null: false
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
+    t.string "pais", null: false
+    t.string "email", null: false
+    t.string "encrypted_password", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "isAdmin", default: false, null: false
     t.index ["email"], name: "index_accounts_on_email", unique: true
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
   end
@@ -81,7 +82,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_140455) do
   end
 
   create_table "histories", force: :cascade do |t|
-    t.string "tarjeta"
+    t.integer "tarjeta"
     t.boolean "domicilio"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -133,6 +134,17 @@ ActiveRecord::Schema.define(version: 2021_04_28_140455) do
     t.decimal "priceOnsale"
   end
 
+  create_table "resenyas", force: :cascade do |t|
+    t.integer "valoracion"
+    t.string "descripcion"
+    t.integer "product_id", null: false
+    t.integer "account_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_resenyas_on_account_id"
+    t.index ["product_id"], name: "index_resenyas_on_product_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "claims", "accounts"
@@ -140,4 +152,6 @@ ActiveRecord::Schema.define(version: 2021_04_28_140455) do
   add_foreign_key "list_items", "products"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
+  add_foreign_key "resenyas", "accounts"
+  add_foreign_key "resenyas", "products"
 end

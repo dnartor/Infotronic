@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Resenyas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Valoracion</th>
+      <th>Descripcion</th>
+      <th>Product</th>
+      <th>Account</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @resenyas.each do |resenya| %>
+      <tr>
+        <td><%= resenya.valoracion %></td>
+        <td><%= resenya.descripcion %></td>
+        <td><%= resenya.product_id %></td>
+        <td><%= resenya.account_id %></td>
+        <td><%= link_to 'Show', resenya %></td>
+        <td><%= link_to 'Edit', edit_resenya_path(resenya) %></td>
+        <td><%= link_to 'Destroy', resenya, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Resenya', new_resenya_path %>

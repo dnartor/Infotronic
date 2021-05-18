@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Valoracion:</strong>
+  <%= @resenya.valoracion %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @resenya.descripcion %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @resenya.product_id %>
+</p>
+
+<p>
+  <strong>Account:</strong>
+  <%= @resenya.account_id %>
+</p>
+
+<%= link_to 'Edit', edit_resenya_path(@resenya) %> |
+<%= link_to 'Back', resenyas_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  valoracion: 1
+  descripcion: MyString
+  product: one
+  account: one
+
+two:
+  valoracion: 1
+  descripcion: MyString
+  product: two
+  account: two

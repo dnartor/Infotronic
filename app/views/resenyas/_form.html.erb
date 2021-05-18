@@ -1,0 +1,35 @@
+<%= form_with(model: resenya) do |form| %>
+  <% if resenya.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(resenya.errors.count, "error") %> prohibited this resenya from being saved:</h2>
+
+      <ul>
+        <% resenya.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :valoracion %>
+    <%= form.number_field :valoracion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :descripcion %>
+    <%= form.text_field :descripcion %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :product_id, value: 9 %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :account_id, value: current_account.id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
