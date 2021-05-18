@@ -8,13 +8,19 @@
 
     <%= favicon_link_tag 'logo_32x32.png' %>
 
-
+    <% if cookies[:moon] %>
+    <%= stylesheet_link_tag 'application_dark', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <% else %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <% end %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    
+    
+  
   </head>
 
-  <body>
+  <body id="bodyjeje" >
     <%= render 'layouts/nav'%>
     <%= yield %>
     <%= render 'layouts/footer'%>

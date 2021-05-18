@@ -1,0 +1,37 @@
+<%= form_with scope: :account,
+url:accounts_path,local: true do |form| %>
+<% if @recipe.errors.any? %>
+<div id="error_explanation">
+<h2>
+<%= pluralize(@recipe.errors.count, "error") %>
+prohibited this article from being saved:
+</h2>
+<ul>
+<% @recipe.errors.full_messages.each do |msg| %>
+<li><%= msg %></li>
+<% end %>
+</ul>
+</div>
+<% end %>
+
+<p><%= form.label :nombre %><br>
+<%= form.text_field :nombre %></p>
+<p><%= form.label :apellidos %><br>
+<%= form.text_field :apellidos %></p>
+<p><%= form.label :telefono %><br>
+<%= form.number_field :telefono %></p>
+<p><%= form.label :cpostal %><br>
+<%= form.number_field :cpostal %></p>
+<p><%= form.label :direccion %><br>
+<%= form.text_field :direccion %></p>
+<p><%= form.label :email %><br>
+<%= form.text_field :email %></p>
+<p><%= form.label :dni %><br>
+<%= form.number_field :dni %></p>
+<p><%= form.label :pais %><br>
+<%= form.text_field :pais %></p>
+<p><%= form.label :contraseña %><br>
+<%= form.text_field :encrypted_password %></p>
+<p><%= form.submit %> </p>
+<% end %>
+<%= link_to 'Back', accounts_path %>
