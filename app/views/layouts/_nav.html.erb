@@ -15,6 +15,7 @@
           <li class="nav-item">
             <%= link_to "Ofertas", ofertas_path, class:"nav-link"  %>
           </li>
+
           <li class="nav-item">
 
             <%= link_to "Top Ventas", top_ventas_path, class:"nav-link"  %>
@@ -26,7 +27,8 @@
               <%= link_to 'Light Mode', moon_path, method: :get , class:"nav-link"%>
               <% end %>
           </li>
-            <% if account_signed_in? %>
+
+          <% if account_signed_in? && !current_account.isAdmin %>
 
             <li class="nav-item">
               <%= link_to "Favoritos", lcart_path, class:"nav-link"  %>
@@ -42,18 +44,19 @@
               <%= link_to "Mis reclamaciones", claims_path, class:"nav-link"  %>
             </li>
 
+          <%elsif account_signed_in? && current_account.isAdmin %>
+              <li class="nav-item">
+                <%= link_to "Productos", products_path, class:"nav-link"  %>
+              </li>
+            <li class="nav-item">
+              <%= link_to "Categorías", categories_path, class:"nav-link"  %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Marcas", brands_path, class:"nav-link"  %>
+            </li>
+
           <% end %>
 
-           
-<!--          <li class="nav-item">-->
-            <%#= link_to "Productos", products_path, class:"nav-link"  %>
-<!--          </li>-->
-<!--          <li class="nav-item">-->
-            <%#= link_to "Marcas",brands_path, class:"nav-link"  %>
-<!--          </li>-->
-<!--          <li class="nav-item">-->
-            <%#= link_to "Categorías", categories_path, class:"nav-link"  %>
-<!--          </li> -->
 
         </ul>
 

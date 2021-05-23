@@ -65,4 +65,3 @@ portatil2.image.attach(io: File.open("app/assets/images/portatiles/teclado-2.PNG
 portatil3.image.attach(io: File.open("app/assets/images/portatiles/teclado-3.PNG"), filename: "teclado-3.PNG")
 portatil4.image.attach(io: File.open("app/assets/images/portatiles/teclado-4.PNG"), filename: "teclado-4.PNG")
 portatil5.image.attach(io: File.open("app/assets/images/portatiles/teclado-5.PNG"), filename: "teclado-5.PNG")
-
