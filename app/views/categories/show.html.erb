@@ -1,14 +1,29 @@
-<p id="notice"><%= notice %></p>
+<section class="offset-md-2 col-md-8 col-xs-12">
+  <div class="d-flex justify-content-center mt-5 content">
+    <div class="col-12 py-4">
+      <div class="w-100 text-center mb-3">
+        <h1>Información de la categoría</h1>
+        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto border-dark" style="width: 200px;">
+      </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
+      <div class="row">
+        <div class="col-md-12 text-center">
 
-<p>
-  <strong>Details:</strong>
-  <%= @category.details %>
-</p>
+          <p>
+            <strong>Nombre:</strong>
+            <%= @category.name %>
+          </p>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+          <p>
+            <strong>Detalles:</strong>
+            <%= @category.details %>
+          </p>
+
+          <%= link_to 'Editar', edit_category_path(@category), class: "btn btn-success text-white" %>
+          <%= link_to 'Volver', categories_path, class: "btn btn-info text-white" %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
