@@ -9,23 +9,17 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         
         <ul class="navbar-nav mr-auto mb-2 mb-md-0">
+
           <li class="nav-item">
             <%= link_to "Catálogo", root_path, class:"nav-link text-success"  %>
           </li>
+
           <li class="nav-item">
             <%= link_to "Ofertas", ofertas_path, class:"nav-link"  %>
           </li>
 
           <li class="nav-item">
-
             <%= link_to "Top Ventas", top_ventas_path, class:"nav-link"  %>
-          </li>
-
-          <% if cookies[:moon] %>
-              <%= link_to 'Dark Mode', sun_path, method: :get , class:"nav-link"%>
-              <% else %>
-              <%= link_to 'Light Mode', moon_path, method: :get , class:"nav-link"%>
-              <% end %>
           </li>
 
           <% if account_signed_in? && !current_account.isAdmin %>
@@ -33,9 +27,11 @@
             <li class="nav-item">
               <%= link_to "Favoritos", lcart_path, class:"nav-link"  %>
             </li>
+
             <li class="nav-item">
               <%= link_to "Carrito", cart_path, class:"nav-link"  %>
             </li>
+
             <li class="nav-item">
               <%= link_to "Historial de compra", histories_path, class:"nav-link"  %>
             </li>
@@ -45,43 +41,46 @@
             </li>
 
           <%elsif account_signed_in? && current_account.isAdmin %>
-              <li class="nav-item">
-                <%= link_to "Productos", products_path, class:"nav-link"  %>
-              </li>
+            <li class="nav-item">
+              <%= link_to "Productos", products_path, class:"nav-link"  %>
+            </li>
+
             <li class="nav-item">
               <%= link_to "Categorías", categories_path, class:"nav-link"  %>
             </li>
+
             <li class="nav-item">
               <%= link_to "Marcas", brands_path, class:"nav-link"  %>
             </li>
 
           <% end %>
 
-
         </ul>
 
-        <form class="form-inline">
-          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" name="search" <%= @search%>>
-          <button class="ml-2 btn btn-outline-success" type="submit">Buscar</button>
-          <select class="ml-2 form-select form-select-sm text-white border-success bg-secondary" name="selectcategoria" id="selectcategoria"<%= @selectcategoria%>>
-            <option value="0">Categoría</option>
-            <option value="1">Ordenadores</option>
-            <option value="2">Monitores</option>
-            <option value="3">Teclados</option>
-            <option value="4">Ratones</option>
-            <option value="5">Portátiles</option>
-          </select>
-          <select class="ml-2 form-select form-select-sm text-white border-success bg-secondary" name="selectMarca" id="selectMarca"<%= @selectmarca%>>
-            <option value="0">Marcas</option>
-            <option value="1">Apple</option>
-            <option value="2">Microsoft</option>
-            <option value="3">Samsung</option>
-            <option value="4">LG</option>
-            <option value="5">Razer</option>
-        </select>
-        <input type="checkbox" class=" ml-2 btn-check active" id="btn-check-outlined" name="recientes" autocomplete="off" <%= @checkrecientes%>>
-        <label class="ml-1 btn btn-outline-secondary border-success active btn-sm" for="btn-check-outlined">Más recientes</label>
-        </form>
+        <% if !account_signed_in? || !current_account.isAdmin %>
+          <form class="form-inline">
+            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" name="search" <%= @search%>>
+            <button class="ml-2 btn btn-outline-success" type="submit">Buscar</button>
+            <select class="ml-2 form-select form-select-sm text-white border-success bg-secondary" name="selectcategoria" id="selectcategoria"<%= @selectcategoria%>>
+              <option value="0">Categoría</option>
+              <option value="1">Ordenadores</option>
+              <option value="2">Monitores</option>
+              <option value="3">Teclados</option>
+              <option value="4">Ratones</option>
+              <option value="5">Portátiles</option>
+            </select>
+            <select class="ml-2 form-select form-select-sm text-white border-success bg-secondary" name="selectMarca" id="selectMarca"<%= @selectmarca%>>
+              <option value="0">Marcas</option>
+              <option value="1">Apple</option>
+              <option value="2">Microsoft</option>
+              <option value="3">Samsung</option>
+              <option value="4">LG</option>
+              <option value="5">Razer</option>
+            </select>
+            <input type="checkbox" class=" ml-2 btn-check active" id="btn-check-outlined" name="recientes" autocomplete="off" <%= @checkrecientes%>>
+            <label class="ml-1 btn btn-outline-secondary border-success active btn-sm" for="btn-check-outlined">Más recientes</label>
+          </form>
+        <% end %>
 
         <ul class="navbar-nav mb-2 mb-md-0">
           <%if !account_signed_in? %>
@@ -98,10 +97,19 @@
             <li class="nav-item">
               <%= link_to "Cerrar sesión", destroy_account_session_path, method: :delete, class:"nav-link"  %>
             </li>
-             <li class="nav-item">
-            <%= link_to 'Eliminar cuenta',accounts_url, method: :delete,data: { confirm: 'Estás seguro?' }, class:"nav-link"  %>
-            </li>
+            <% if account_signed_in? && !current_account.isAdmin %>
+              <li class="nav-item">
+                 <%= link_to 'Eliminar cuenta',accounts_url, method: :delete,data: { confirm: 'Estás seguro?' }, class:"nav-link"  %>
+              </li>
+            <% end %>
           <%end%>
+
+          <% if cookies[:moon] %>
+            <%= link_to 'Modo oscuro', sun_path, method: :get , class:"nav-link"%>
+          <% else %>
+            <%= link_to 'Modo claro', moon_path, method: :get , class:"nav-link"%>
+          <% end %>
+
         </ul>
 
       </div>
