@@ -1,4 +1,5 @@
 <header>
+<link id="pagestyle" rel="stylesheet" href="light.css">
   <nav class="navbar navbar-expand bg-dark navbar-dark mb-4">
     <div class="container-fluid">
       <%= image_tag "logo_500x500_white.png", class:"d-inline-block align-top", height:'50' %>
@@ -15,9 +16,18 @@
             <%= link_to "Ofertas", ofertas_path, class:"nav-link"  %>
           </li>
           <li class="nav-item">
+
             <%= link_to "Top Ventas", top_ventas_path, class:"nav-link"  %>
           </li>
-          <% if account_signed_in? %>
+
+          <% if cookies[:moon] %>
+              <%= link_to 'Dark Mode', sun_path, method: :get , class:"nav-link"%>
+              <% else %>
+              <%= link_to 'Light Mode', moon_path, method: :get , class:"nav-link"%>
+              <% end %>
+          </li>
+            <% if account_signed_in? %>
+
             <li class="nav-item">
               <%= link_to "Favoritos", lcart_path, class:"nav-link"  %>
             </li>
@@ -81,6 +91,9 @@
             <li class="nav-item">
               <%= link_to "Cerrar sesión", destroy_account_session_path, method: :delete, class:"nav-link"  %>
             </li>
+             <li class="nav-item">
+            <%= link_to 'Eliminar cuenta',accounts_url, method: :delete,data: { confirm: 'Estás seguro?' }, class:"nav-link"  %>
+            </li>
           <%end%>
         </ul>
 
@@ -88,4 +101,3 @@
     </div>
   </nav>
 </header>
-
