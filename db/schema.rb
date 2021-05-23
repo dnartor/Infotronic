@@ -13,15 +13,15 @@
 ActiveRecord::Schema.define(version: 2021_05_15_200703) do
 
   create_table "accounts", force: :cascade do |t|
-    t.string "nombre", null: false
-    t.string "apellidos", null: false
+    t.string "nombre", default: "", null: false
+    t.string "apellidos", default: "", null: false
     t.integer "telefono", null: false
     t.integer "cpostal", null: false
-    t.string "direccion", null: false
+    t.string "direccion", default: "", null: false
     t.integer "dni", null: false
-    t.string "pais", null: false
-    t.string "email", null: false
-    t.string "encrypted_password", null: false
+    t.string "pais", default: "", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 2021_05_15_200703) do
   end
 
   create_table "histories", force: :cascade do |t|
-    t.integer "tarjeta"
+    t.string "tarjeta"
     t.boolean "domicilio"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -132,6 +132,7 @@ ActiveRecord::Schema.define(version: 2021_05_15_200703) do
     t.integer "category_id"
     t.integer "brand_id"
     t.decimal "priceOnsale"
+    t.boolean "topVentas"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
