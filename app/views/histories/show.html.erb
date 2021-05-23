@@ -18,7 +18,6 @@
         <tbody>
         <% @buyedItems.each do |item| %>
           <tr>
-
             <td class="text-center align-middle">
               <%= @history.tarjeta %>
             </td>
@@ -36,7 +35,6 @@
             <td class="text-center align-middle">
               <%= number_to_currency item.total, :locale => :en %>
             </td>
-
           </tr>
         <% end %>
         </tbody>
@@ -50,7 +48,7 @@
         <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto border-dark" style="width: 200px;">
         <div class="table-responsive">
         <%if days <5 %>
-        <h4> El pedido llegará el <%=dia_llegada.strftime("%d %b %y")%> , quedan <%=5 -days%> días.
+            <h4> El pedido llegará el <%=dia_llegada.strftime("%d %b %y")%> , quedan <%=5 -days%> días.</h4>
         <%else%>
           <h4>El pedido llegó el <%=dia_llegada.strftime("%d %b %y")%>.</h4>
         <%end%>
