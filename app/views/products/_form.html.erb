@@ -11,27 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
+  <div class="form-group">
+    <%= form.label :name, "Nombre" %>
     <%= form.text_field :name %>
   </div>
 
-  <div class="field">
-    <%= form.label :price %>
+  <div class="form-group">
+    <%= form.label :price, "Precio" %>
     <%= form.text_field :price %>
   </div>
 
-  <div class="field">
-    <%= form.label :image %>
+  <div class="form-group">
+    <%= form.label :image, "Imagen" %>
     <%= form.file_field :image %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
+  <div class="form-group">
+    <%= form.label :description, "Descripción" %>
     <%= form.text_area :description %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <label for="brand_id">Marca</label>
     <select name="product[brand_id]" class="form-control">
       <option value="null">Seleccione marca</option>
@@ -41,13 +41,19 @@
     </select>
   </div>
 
-  <div class="field">
-    <%= form.label :onsale %>
+  <div class="form-group">
+    <%= form.label :onsale, "Oferta" %>
     <%= form.check_box :onsale %>
   </div>
 
-  <div class="field">
-    <label for="category_id">Categoria</label>
+  <div class="form-group">
+    <%= form.label :priceOnsale, "precio de oferta" %>
+    <%= form.text_field :priceOnsale %>
+  </div>
+
+
+  <div class="form-group">
+    <label for="category_id">Categoría</label>
     <select name="product[category_id]" class="form-control">
       <option value="null">Seleccione categoría</option>
       <% Category.all.each do |c| %>
@@ -57,7 +63,8 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Guardar", class: "btn btn-dark text-white" %>
+    <%= link_to 'Cancelar', products_path, class:"btn btn-warning text-white" %>
   </div>
 
 

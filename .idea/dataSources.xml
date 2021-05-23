@@ -19,6 +19,7 @@
       </libraries>
     </data-source>
     <data-source source="LOCAL" name="development [2]" uuid="eb031ab0-3ca4-4552-9c42-f7a8526c150d">
+===
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
