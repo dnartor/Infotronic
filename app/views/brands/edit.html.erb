@@ -1,6 +1,17 @@
-<h1>Editing Brand</h1>
+<section class="offset-md-2 col-md-8 col-xs-12 custom-form">
+  <div class="d-flex justify-content-center mt-5 content">
+    <div class="col-md-10 col-xs-12 py-4">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h1 class="mb-2">Editar marca</h1>
+          <hr class="teal accent-3 mb-4 mt-0 mx-auto border-dark" style="width: 200px;">
 
-<%= render 'form', brand: @brand %>
+          <%= render 'form', brand: @brand %>
 
-<%= link_to 'Show', @brand %> |
-<%= link_to 'Back', brands_path %>
+          <%= link_to 'Ver', @brand, class: "btn btn-info text-white" %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

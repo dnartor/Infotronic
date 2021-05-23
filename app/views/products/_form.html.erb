@@ -11,64 +11,88 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= form.label :name, "Nombre" %>
-    <%= form.text_field :name %>
-  </div>
+  <div class="row">
+    <!-- Bloque izquierda -->
+    <div class="col-md-6 col-xs-12">
 
-  <div class="form-group">
-    <%= form.label :price, "Precio" %>
-    <%= form.text_field :price %>
-  </div>
+      <!-- Box name -->
+      <div class="form-group">
+        <%= form.label :name, "Nombre" %><br />
+        <%= form.text_field :name %>
+      </div>
+      <!-- /Box name -->
 
-  <div class="form-group">
-    <%= form.label :image, "Imagen" %>
-    <%= form.file_field :image %>
-  </div>
+      <!-- Box price -->
+      <div class="form-group">
+        <%= form.label :price, "Precio" %><br />
+        <%= form.text_field :price %>
+      </div>
+      <!-- /Box price -->
 
-  <div class="form-group">
-    <%= form.label :description, "Descripción" %>
-    <%= form.text_area :description %>
-  </div>
+      <!-- Box category -->
+      <div class="form-group">
+        <label for="category_id">Categoría</label>
+        <select name="product[category_id]" class="form-control col-md-8 offset-2">
+          <option value="null">Seleccione categoría</option>
+          <% Category.all.each do |c| %>
+            <option value="<%= c.id %>" <%= @product.category_id == c.id ? "selected" : ""%>><%= c.name%></option>
+          <% end %>
+        </select>
+      </div>
+      <!-- /Box category -->
 
-  <div class="form-group">
-    <label for="brand_id">Marca</label>
-    <select name="product[brand_id]" class="form-control">
-      <option value="null">Seleccione marca</option>
-      <% Brand.all.each do |b| %>
-        <option value="<%= b.id %>" <%= @product.brand_id == b.id ? "selected" : ""%>><%= b.name%></option>
-      <% end %>
-    </select>
-  </div>
+      <!-- Box brand -->
+      <div class="form-group">
+        <label for="brand_id">Marca</label>
+        <select name="product[brand_id]" class="form-control col-md-8 offset-2">
+          <option value="null">Seleccione marca</option>
+          <% Brand.all.each do |b| %>
+            <option value="<%= b.id %>" <%= @product.brand_id == b.id ? "selected" : ""%>><%= b.name%></option>
+          <% end %>
+        </select>
+      </div>
+      <!-- /Box brand -->
 
-  <div class="form-group">
-    <%= form.label :onsale, "Oferta" %>
-    <%= form.check_box :onsale %>
-  </div>
+    </div>
+    <!-- /Bloque izquierda -->
 
-  <div class="form-group">
-    <%= form.label :priceOnsale, "precio de oferta" %>
-    <%= form.text_field :priceOnsale %>
-  </div>
+    <!-- Bloque derecha -->
+    <div class="col-md-6 col-xs-12">
 
+      <!-- Box description -->
+      <div class="form-group">
+        <%= form.label :description, "Descripción" %>
+        <%= form.text_area :description %>
+      </div>
+      <!-- /Box description -->
 
-  <div class="form-group">
-    <label for="category_id">Categoría</label>
-    <select name="product[category_id]" class="form-control">
-      <option value="null">Seleccione categoría</option>
-      <% Category.all.each do |c| %>
-      <option value="<%= c.id %>" <%= @product.category_id == c.id ? "selected" : ""%>><%= c.name%></option>
-      <% end %>
-    </select>
+      <!-- Box onsale -->
+      <div class="form-group">
+        <%= form.label :onsale, "Oferta" %>
+        <%= form.check_box :onsale %>
+      </div>
+      <!-- /Box onsale -->
+
+      <!-- Box priceOnsale -->
+      <div class="form-group">
+        <%= form.label :priceOnsale, "Precio de oferta" %>
+        <%= form.text_field :priceOnsale %>
+      </div>
+      <!-- /Box priceOnsale -->
+
+      <!-- Box image -->
+      <div class="form-group">
+        <%= form.label :image, "Imagen" %>
+        <%= form.file_field :image %>
+      </div>
+      <!-- /Box image -->
+
+    </div>
+    <!-- /Bloque derecha -->
   </div>
 
   <div class="actions">
     <%= form.submit "Guardar", class: "btn btn-dark text-white" %>
     <%= link_to 'Cancelar', products_path, class:"btn btn-warning text-white" %>
   </div>
-
-
-
-
-
 <% end %>

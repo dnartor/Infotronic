@@ -1,27 +1,35 @@
-<p id="notice"><%= notice %></p>
+<section class="offset-md-1 col-md-10 col-xs-12">
+  <div class="my-3 content p-5">
+    <div class="w-100 text-center">
+      <h1>Marcas</h1>
+      <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto border-dark" style="width: 200px;">
+    </div>
 
-<h1>Brands</h1>
-
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @brands.each do |brand| %>
+    <table class="table">
+      <thead class="thead-dark">
       <tr>
-        <td><%= brand.name %></td>
-        <td><%= link_to 'Show', brand %></td>
-        <td><%= link_to 'Edit', edit_brand_path(brand) %></td>
-        <td><%= link_to 'Destroy', brand, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th class="text-center">Nombre</th>
+        <th colspan="3" class="text-center">Acciones</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      </thead>
 
-<br>
+      <tbody>
+      <% @brands.each do |brand| %>
+        <tr class="text-center">
+          <td><%= brand.name %></td>
+          <td>
+            <%= link_to 'Ver', brand, class:"btn btn-info text-white" %>
+            <%= link_to 'Editar', edit_brand_path(brand), class:"btn btn-success text-white" %>
+            <%= link_to 'Eliminar', brand, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger text-white" %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <div class="text-center">
+      <%= link_to 'Nueva Marca', new_brand_path,class:"btn btn-dark text-white" %>
+    </div>
+  </div>
+</section>
 
-<%= link_to 'New Brand', new_brand_path,class:"btn btn-info" %>
+

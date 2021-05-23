@@ -1,37 +1,37 @@
 <section class="offset-md-1 col-md-10 col-xs-12">
   <div class="my-3 content p-5">
     <div class="w-100 text-center">
-      <h1>Products</h1>
+      <h1>Productos</h1>
       <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto border-dark" style="width: 200px;">
     </div>
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th class="text-center">Nombre</th>
-      <th class="text-center">Precio</th>
-      <th class="text-center">Descripcion</th>
-      <th class="text-center">Marca</th>
-      <th class="text-center">Categoría</th>
-      <th colspan="3" class="text-center">Acciones</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @products.each do |product| %>
-      <tr class="text-center">
-        <td class="align-middle"><%= product.name %></td>
-        <td class="align-middle"><%= product.price %></td>
-        <td class="align-middle"><%= product.description %></td>
-        <td class="align-middle"><%= product.brand.name %></td>
-        <td class="align-middle"><%= product.category.name %></td>
-        <td class="align-middle">
-          <%= link_to 'Ver', product, class:"btn btn-info text-white" %>
-          <%= link_to 'Editar', edit_product_path(product),class:"btn btn-success text-white" %>
-          <%= link_to 'Eliminar', product, method: :delete, data: { confirm: '¿Estas seguro?' },class:"btn btn-danger text-white" %></td>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th class="text-center">Nombre</th>
+        <th class="text-center">Precio</th>
+        <th class="text-center">Descripcion</th>
+        <th class="text-center">Marca</th>
+        <th class="text-center">Categoría</th>
+        <th colspan="3" class="text-center">Acciones</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @products.each do |product| %>
+        <tr class="text-center">
+          <td class="align-middle"><%= product.name %></td>
+          <td class="align-middle"><%= product.price %></td>
+          <td class="align-middle"><%= product.description %></td>
+          <td class="align-middle"><%= product.brand.name %></td>
+          <td class="align-middle"><%= product.category.name %></td>
+          <td class="align-middle">
+            <%= link_to 'Ver', product, class:"btn btn-info text-white" %>
+            <%= link_to 'Editar', edit_product_path(product),class:"btn btn-success text-white" %>
+            <%= link_to 'Eliminar', product, method: :delete, data: { confirm: '¿Estas seguro?' },class:"btn btn-danger text-white" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
     <div class="text-center">
       <%= link_to 'Nuevo producto', new_product_path , class:"btn btn-dark text-white"%>
     </div>
