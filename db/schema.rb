@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_15_200703) do
+ActiveRecord::Schema.define(version: 2021_05_17_112201) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "nombre", null: false
@@ -128,6 +128,17 @@ ActiveRecord::Schema.define(version: 2021_05_15_200703) do
     t.boolean "topVentas"
   end
 
+  create_table "resenyas", force: :cascade do |t|
+    t.integer "valoracion"
+    t.string "descripcion"
+    t.integer "product_id", null: false
+    t.integer "account_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_resenyas_on_account_id"
+    t.index ["product_id"], name: "index_resenyas_on_product_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "claims", "accounts"
@@ -135,4 +146,6 @@ ActiveRecord::Schema.define(version: 2021_05_15_200703) do
   add_foreign_key "list_items", "products"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
+  add_foreign_key "resenyas", "accounts"
+  add_foreign_key "resenyas", "products"
 end

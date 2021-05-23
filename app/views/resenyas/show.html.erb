@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+<section class="offset-md-1 col-md-10 col-xs-12">
+  <div class="d-flex justify-content-center mt-5 content">
+    <div class="col-sm-12 py-4">
+      <div class="text-center">
+        <h3>Reseña</h3>
+      </div>
+      <table class="table table-striped mt-3">
+        <thead class="mb-2">
+        <tr>
+          <th class="text-center">Product</th>
+          <th class="text-center">Valoración</th>
+          <th class="text-center">Descripción</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="text-center"><%= @resenya.product.name %> </td>
+          <td class="text-center"><%= @resenya.valoracion %></td>
+          <td class="text-center"><%= @resenya.descripcion %></td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="text-center">
+        <%= link_to 'Edit', edit_resenya_path(@resenya), class: "btn btn-info"%>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+
+<!--<p>-->
+<!--  <strong>Account:</strong>-->
+  <%#= @resenya.account_id %>
+<!--</p>-->
+
+

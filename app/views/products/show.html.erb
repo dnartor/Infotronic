@@ -44,6 +44,7 @@
             <%= form_for(@list_item, remote: true) do |l| %>
               <%= l.hidden_field :product_id, value: @product.id %>
               <%= l.submit "Añadir a favoritos", class: "btn btn-warning text-dark" %>
+              <%= link_to 'Añadir Reseña', new_resenya_path, class:"btn btn-info text-white mt-3" %>
             <% end %>
           </div>
 
@@ -60,9 +61,43 @@
         <div class="col-md-4 text-center mt-3">
           <%= link_to 'Volver', root_path, class:"btn btn-info text-white" %>
         </div>
-
       </div>
+    </div>
+  </div>
+  <div class="my-5 content py-3 ">
+    <div class="w-100 text-center">
+      <h1>Reseñas</h1>
+      <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto border-dark" style="width: 200px;">
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped">
 
+        <thead>
+        <tr>
+          <th class="text-center">Usuario</th>
+          <th class="text-center">Valoración</th>
+          <th class="text-center">Comentario</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% if @product.id == 9 %>
+          <% @resenya.each do |r| %>
+              <tr>
+                <td class="text-center">
+                  <%= r.account.nombre %>
+                  <%= r.account.apellidos %>
+                </td>
+                <td class="text-center">
+                  <%= r.valoracion %>
+                </td>
+                <td class="text-center">
+                  <%= r.descripcion %>
+                </td>
+              </tr>
+          <% end %>
+        <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>

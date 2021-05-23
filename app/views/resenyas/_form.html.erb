@@ -1,0 +1,50 @@
+<section class="offset-md-2 col-md-8 col-xs-12 custom-form">
+  <div class="d-flex justify-content-center mt-5 content">
+    <div class="col-md-10 col-xs-12 py-4">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h1 class="mb-2">Realizar una reseña</h1>
+          <hr class="teal accent-3 mb-4 mt-0 mx-auto border-dark" style="width: 200px;">
+          <%= form_with(model: resenya) do |form| %>
+            <% if resenya.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(resenya.errors.count, "error") %> prohibited this resenya from being saved:</h2>
+
+                <ul>
+                  <% resenya.errors.each do |error| %>
+                    <li><%= error.full_message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="form-group">
+              <%= form.label :valoracion %>
+              <%= form.number_field :valoracion, class: "form-control d-flex align-content-center mr-5" %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :descripcion %>
+              <%= form.text_area :descripcion, class:"form-control" %>
+
+
+            </div>
+
+            <div class="form-group">
+              <%= form.hidden_field :product_id, value: 9 %>
+            </div>
+
+            <div class="form-group">
+              <%= form.hidden_field :account_id, value: current_account.id %>
+            </div>
+
+            <div class="actions d-flex justify-content-center mb-2">
+              <%= form.submit "Guardar", class: "btn btn-success" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

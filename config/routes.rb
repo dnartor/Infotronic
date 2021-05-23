@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :resenyas
   resources :histories
   get 'list_items/create'
   get 'list_items/destroy'
