@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   delete '/order_items/deleteAll', to:'order_items#destroy_all'
   get 'cart', to: 'cart#show'
   get 'ofertas', to: 'ofertas#show'
+  get 'top_ventas', to: 'top_ventas#show'
   get '/moon', to: 'application#moon', as: 'moon'
   get '/sun', to: 'application#sun', as: 'sun'
   resources :brands
