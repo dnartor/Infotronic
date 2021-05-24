@@ -1,26 +1,44 @@
-<p><strong>Nombre:</strong>
-<%= @recipe.nombre %>
-</p>
-<p><strong>Apellidos:</strong>
-<%= @recipe.apellidos %>
-</p>
-<p><strong>Telefono:</strong>
-<%= @recipe.telefono %>
-</p>
-<p><strong>Codigo Postal:</strong>
-<%= @recipe.cpostal %>
-</p>
-<p><strong>Direccion:</strong>
-<%= @recipe.direccion %>
-</p>
-<p><strong>Dni:</strong>
-<%= @recipe.dni %>
-</p>
-<p><strong>Pais:</strong>
-<%= @recipe.pais %>
-</p>
-<p><strong>Email:</strong>
-<%= @recipe.email %>
-</p>
-<%= link_to 'Edit', edit_account_path(@recipe.id) %>
-<%= link_to 'Back', accounts_path %>
+<section class="offset-md-2 col-md-8 col-xs-12">
+  <div class="d-flex justify-content-center mt-5 content">
+    <div class="col-12 py-4">
+      <div class="w-100 text-center mb-3">
+        <h1>Información del usuario</h1>
+        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto border-dark" style="width: 200px;">
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 text-center">
+
+          <p><strong>Nombre:</strong>
+            <%= @recipe.nombre %>
+          </p>
+          <p><strong>Apellidos:</strong>
+            <%= @recipe.apellidos %>
+          </p>
+          <p><strong>Telefono:</strong>
+            <%= @recipe.telefono %>
+          </p>
+          <p><strong>Codigo Postal:</strong>
+            <%= @recipe.cpostal %>
+          </p>
+          <p><strong>Direccion:</strong>
+            <%= @recipe.direccion %>
+          </p>
+          <p><strong>Dni:</strong>
+            <%= @recipe.dni %>
+          </p>
+          <p><strong>Pais:</strong>
+            <%= @recipe.pais %>
+          </p>
+          <p><strong>Email:</strong>
+            <%= @recipe.email %>
+          </p>
+
+          <%= link_to 'Editar', edit_account_path(@recipe.id), class: "btn btn-success text-white" %>
+          <%= link_to 'Volver', accounts_path, class: "btn btn-info text-white" %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

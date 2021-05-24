@@ -2,17 +2,15 @@
 <link id="pagestyle" rel="stylesheet" href="light.css">
   <nav class="navbar navbar-expand bg-dark navbar-dark mb-4">
     <div class="container-fluid">
-      <%= image_tag "logo_500x500_white.png", class:"d-inline-block align-top", height:'50' %>
+      <a href="http://127.0.0.1:3000/">
+        <%= image_tag "logo_500x500_white.png", class:"d-inline-block align-top", height:'50' %>
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         
         <ul class="navbar-nav mr-auto mb-2 mb-md-0">
-
-          <li class="nav-item">
-            <%= link_to "Catálogo", root_path, class:"nav-link text-success"  %>
-          </li>
 
           <li class="nav-item">
             <%= link_to "Ofertas", ofertas_path, class:"nav-link"  %>
@@ -53,13 +51,17 @@
               <%= link_to "Marcas", brands_path, class:"nav-link"  %>
             </li>
 
+            <li class="nav-item">
+              <%= link_to "Usuarios", accounts_path, class:"nav-link"  %>
+            </li>
+
           <% end %>
 
         </ul>
 
         <% if !account_signed_in? || !current_account.isAdmin %>
           <form class="form-inline">
-            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" name="search" <%= @search%>>
+            <input class="form-control me-2 col-md-3" type="search" placeholder="Buscar" aria-label="Search" name="search" <%= @search%>>
             <button class="ml-2 btn btn-outline-success" type="submit">Buscar</button>
             <select class="ml-2 form-select form-select-sm text-white border-success bg-secondary" name="selectcategoria" id="selectcategoria"<%= @selectcategoria%>>
               <option value="0">Categoría</option>
@@ -97,11 +99,6 @@
             <li class="nav-item">
               <%= link_to "Cerrar sesión", destroy_account_session_path, method: :delete, class:"nav-link"  %>
             </li>
-            <% if account_signed_in? && !current_account.isAdmin %>
-              <li class="nav-item">
-                 <%= link_to 'Eliminar cuenta',accounts_url, method: :delete,data: { confirm: 'Estás seguro?' }, class:"nav-link"  %>
-              </li>
-            <% end %>
           <%end%>
 
           <% if cookies[:moon] %>
