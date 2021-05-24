@@ -12,7 +12,7 @@
           <th class="text-center">Nºtarjeta</th>
           <th class="text-center">Domicilio</th>
           <th class="text-center">Reclamaciones</th>
-          <th class="text-center">Acciones</th>
+          <th class="text-center" colspan="2">Acciones</th>
         </tr>
         </thead>
         <tbody>
@@ -32,11 +32,12 @@
             </td>
 
             <td class="text-center align-middle">
-              <%= link_to 'Enviar', new_claim_path, class: "btn btn-info text-white" %>
+              <%= link_to 'Enviar', new_claim_path, class: "btn btn-success text-white" %>
             </td>
 
             <td class="text-center align-middle">
-              <%= link_to 'Ver', history, class: "btn btn-dark text-white" %>
+              <%= link_to 'Ver Compra', history, class: "btn btn-info text-white" %>
+              <%= link_to "Ver reclamaciones", claims_path, class:"btn btn-warning text-white"  %>
             </td>
 
           </tr>
@@ -45,7 +46,7 @@
       </table>
     </div>
     <div class="text-center align-middle">
-      <%= link_to "Volver al catálogo", order_items_deleteAll_path, method: :delete, class: "btn btn-success mt-2 text-white" %>
+      <%= link_to "Volver al catálogo", order_items_deleteAll_path, method: :delete, class: "btn btn-dark mt-2 text-white" %>
     </div>
   </div>
 </section>

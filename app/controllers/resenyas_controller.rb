@@ -8,6 +8,7 @@ class ResenyasController < ApplicationController
 
   # GET /resenyas/1 or /resenyas/1.json
   def show
+    redirect_to root_path
   end
 
   # GET /resenyas/new

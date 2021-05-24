@@ -30,14 +30,6 @@
               <%= link_to "Carrito", cart_path, class:"nav-link"  %>
             </li>
 
-            <li class="nav-item">
-              <%= link_to "Historial de compra", histories_path, class:"nav-link"  %>
-            </li>
-
-            <li class="nav-item">
-              <%= link_to "Mis reclamaciones", claims_path, class:"nav-link"  %>
-            </li>
-
           <%elsif account_signed_in? && current_account.isAdmin %>
             <li class="nav-item">
               <%= link_to "Productos", products_path, class:"nav-link"  %>
@@ -60,7 +52,7 @@
         </ul>
 
         <% if !account_signed_in? || !current_account.isAdmin %>
-          <form class="form-inline">
+          <form class="form-inline ml-2">
             <input class="form-control me-2 col-md-3" type="search" placeholder="Buscar" aria-label="Search" name="search" <%= @search%>>
             <button class="ml-2 btn btn-outline-success" type="submit">Buscar</button>
             <select class="ml-2 form-select form-select-sm text-white border-success bg-secondary" name="selectcategoria" id="selectcategoria"<%= @selectcategoria%>>

@@ -8,6 +8,7 @@ class ClaimsController < ApplicationController
 
   # GET /claims/1 or /claims/1.json
   def show
+    redirect_to claims_path
   end
 
   # GET /claims/new
