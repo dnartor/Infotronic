@@ -81,6 +81,13 @@ ActiveRecord::Schema.define(version: 2021_05_17_112201) do
     t.index ["account_id"], name: "index_claims_on_account_id"
   end
 
+  create_table "histories", force: :cascade do |t|
+    t.string "tarjeta"
+    t.boolean "domicilio"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "list_items", force: :cascade do |t|
     t.integer "product_id", null: false
     t.integer "list_id", null: false
