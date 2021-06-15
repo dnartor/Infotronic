@@ -13,6 +13,10 @@ gem 'puma', '~> 5.0'
 
 gem 'bootstrap'
 
+gem 'popper_js'
+
+gem 'jquery-rails'
+
 gem "devise"
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
